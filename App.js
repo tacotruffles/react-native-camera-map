@@ -19,10 +19,11 @@ export default class App extends Component {
         <View style={styles.container}>
           <TextInput
             style={{width: 300, borderColor: "black", borderWidth: 1}}
-            placeholder="Hello World"
+            placeholder="Awesome Place"
             value={this.state.placeName} 
             onChangeText={this.placeNameChangedHandler}
           />
+          <Text>{this.state.placeName}</Text>
         </View>
       );
   }
