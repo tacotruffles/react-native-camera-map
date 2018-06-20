@@ -1,39 +1,64 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 export default class App extends Component {
   
+  state = {
+    placeName: ""
+  };
 
-    state = {
-      placeName: ""
-    };
+  placeNameChangedHandler = (val) => {
+    this.setState({
+      placeName: val
+    });
+  }
 
-    placeNameChangedHandler = (val) => {
-      this.setState({
-        placeName: val
-      })
-    }
+  onAddAwesomePlaceName = () => {
 
-    render() {
-      return (
-        <View style={styles.container}>
-          <TextInput
-            style={{width: 300, borderColor: "black", borderWidth: 1}}
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.inputContainer}>
+        <TextInput
+            style={styles.placeInput}
             placeholder="Awesome Place"
             value={this.state.placeName} 
             onChangeText={this.placeNameChangedHandler}
           />
-          <Text>{this.state.placeName}</Text>
+          <Button 
+            title="Add"
+            color="red"
+            style={styles.placeButton}
+            onPress={this.onAddAwesomePlaceName}
+          />
         </View>
-      );
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 26,
+    flexDirection: 'column',
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
+  inputContainer: {
+    //flex: 1,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  placeInput: {
+    width: "70%"
+  },
+  placeButton: {
+    width: "30%"
+  }
 });
