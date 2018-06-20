@@ -1,0 +1,3 @@
+rootProject.name = 'reactnativecameramap'
+
+include ':app'
