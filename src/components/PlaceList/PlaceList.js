@@ -6,7 +6,7 @@ import ListItem from '../ListItem/ListItem';
 const placeList = (props) => {
 
     const itemsOutput = props.places.map((place, i) => (
-        <ListItem key={i} placeName={place} />
+        <ListItem key={i} placeName={place} onItemPressed={() => alert('Item pressed: ' + i)}/>
     ));
 
     return (
