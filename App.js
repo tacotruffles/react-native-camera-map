@@ -1,56 +1,33 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
+import PlaceInput from './src/components/PlaceInput/PlaceInput';
+import ListItems from './src/components/ListItems/ListItems';
+
 export default class App extends Component {
   
   state = {
-    placeName: "",
     places: []
   };
 
-  placeNameChangedHandler = (val) => {
-    this.setState({
-      placeName: val
-    });
-  }
+  
 
-  placeSubmitHandler = () => {
-    if(this.state.placeName.trim() === "") {
-      return;
-    }
-
+  placeAddedHandler = placeName => {
     this.setState(prevState => {
+
+      const newPlace = prevState.places.concat(placeName)
+      
       return {
-        places: prevState.places.concat(prevState.placeName)
+        places: newPlace
       }
     })
   }
 
   render() {
-
-    const placesOutput = this.state.places.map((place, i) => (
-      <Text key={i}>{place}</Text>
-    ))
-
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-        <TextInput
-            style={styles.placeInput}
-            placeholder="Awesome Place"
-            value={this.state.placeName} 
-            onChangeText={this.placeNameChangedHandler}
-          />
-          <Button 
-            title="Add"
-            color="red"
-            style={styles.placeButton}
-            onPress={this.placeSubmitHandler}
-          />
-        </View>
-        <View>
-          {placesOutput}
-        </View>
+        <PlaceInput onPlaceAdded={this.placeAddedHandler}/>
+        <ListItems items={this.state.places}/>
       </View>
     );
   }
@@ -64,18 +41,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-  },
-  inputContainer: {
-    //flex: 1,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  placeInput: {
-    width: "70%"
-  },
-  placeButton: {
-    width: "30%"
   }
 });
