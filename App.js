@@ -3,11 +3,13 @@ import { StyleSheet, View } from 'react-native';
 
 import PlaceInput from './src/components/PlaceInput/PlaceInput';
 import PlaceList from './src/components/PlaceList/PlaceList';
+import placeImage from './src/assets/beautiful-place.jpg';
 
 export default class App extends Component {
   
   state = {
-    places: ["San Diego","Los Angeles","Madrid","Lisbon","Oviedo","Milan","San Francisco","New York","Ipswitch","Mobile","Miami","Charlotte","San Jose","Seattle","Portland","Dallas","Austin","Houston"]
+    //places: ["San Diego","Los Angeles","Madrid","Lisbon","Oviedo","Milan","San Francisco","New York","Ipswitch","Mobile","Miami","Charlotte","San Jose","Seattle","Portland","Dallas","Austin","Houston"]
+    places: []
   };
 
   
@@ -15,7 +17,11 @@ export default class App extends Component {
   placeAddedHandler = placeName => {
     this.setState(prevState => {
 
-      const newPlace = prevState.places.concat(placeName)
+      const newPlace = prevState.places.concat({
+        key: Math.random().toString(), 
+        name: placeName,
+        image: placeImage
+      });
       
       return {
         places: newPlace
@@ -23,11 +29,11 @@ export default class App extends Component {
     })
   }
 
-  placeDeletedHandler = index => {
+  placeDeletedHandler = key => {
     this.setState(prevState => {
       return{
         places: prevState.places.filter((place, i) => {
-          return i !== index;
+          return place.key !== key;
         })
       }
     });
