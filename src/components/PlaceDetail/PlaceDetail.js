@@ -15,7 +15,7 @@ const placeDetail = (props) => {
     }
 
     return (
-        <Modal visible={props.selectedPlace !== null} animationType="slide" onRequestClose={() => {}} >
+        <Modal visible={props.selectedPlace !== null} animationType="slide" onRequestClose={props.onModalClosed} >
         <View style={styles.modalContainer}>
             {modalContent}
             <View>
