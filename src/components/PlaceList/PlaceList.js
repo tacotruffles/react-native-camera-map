@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 import ListItem from '../ListItem/ListItem';
 
 const placeList = (props) => {
 
     const itemsOutput = props.places.map((place, i) => (
-        <ListItem key={i} placeName={place} onItemPressed={() => alert('Item pressed: ' + i)}/>
+        <ListItem 
+            key={i} 
+            placeName={place} 
+            onItemPressed={() => props.onItemDeleted(i)}/>
     ));
 
     return (
-        <View style={styles.listContainer}>
+        <ScrollView style={styles.listContainer}>
             {itemsOutput}
-        </View>
+        </ScrollView>
     );
 };
 

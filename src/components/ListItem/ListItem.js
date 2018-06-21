@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 const listItem = (props) => (
-    <TouchableWithoutFeedback onPress={props.onItemPressed}>
+    <TouchableOpacity onPress={props.onItemPressed}>
         <View style={styles.listItem}>
             <Text>{props.placeName}</Text>
         </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
