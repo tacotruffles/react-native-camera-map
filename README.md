@@ -6,6 +6,13 @@ Make sure you have Xcode 9.x installed and then revert your react-native package
 
 Also, do NOT use hyphens in your project name on project init, this really causes problems with builds on both Android and Xcode, which you can work around at the beginning but is a pain to manage.
 
+## 3rd Party Libraries
+
+### React Native Vector Icons
+https://github.com/oblador/react-native-vector-icons
+
+## Documentation
+
 ### React Native Docs:
 https://facebook.github.io/react-native/docs/tutorial.html
 
