@@ -20,7 +20,8 @@ const startTabs = () => {
 						leftButtons: [
 							{
 								icon: sources[2],
-								title: "Menu"
+								title: "Menu",
+								id: "sideDrawerToogle"
 							}
 						]
 					}
@@ -34,7 +35,8 @@ const startTabs = () => {
 						leftButtons: [
 							{
 								icon: sources[2],
-								title: "Menu"
+								title: "Menu",
+								id: "sideDrawerToogle"
 							}
 						]
 					}
