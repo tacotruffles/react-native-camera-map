@@ -20,6 +20,7 @@ class SharePlaceScreen extends Component {
 				});
 			}
 		}
+
 		// switch (event.id) {
 		// 	case "willAppear":
 		// 		break;

@@ -4,7 +4,8 @@ import { View, Text, Dimensions, StyleSheet } from "react-native";
 class SideDrawer extends Component {
 	render() {
 		return (
-			<View style={styles.drawerContainer}>
+			// Android requires width or it crashes and separate for device rotation
+			<View style={[styles.drawerContainer, { width: Dimensions.get("window").width * 0.8 }]}>
 				<Text>SideDrawer Text</Text>
 			</View>
 		);
@@ -13,8 +14,8 @@ class SideDrawer extends Component {
 
 const styles = StyleSheet.create({
 	drawerContainer: {
-		width: Dimensions.get("window").width * 0.8, // Android requires width or it crashes
-		height: "100%",
+		flex: 1,
+		paddingTop: 22,
 		backgroundColor: "white"
 	}
 });
